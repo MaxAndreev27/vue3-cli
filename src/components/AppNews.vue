@@ -9,16 +9,18 @@
             <AppButton v-if="!isReadLocal" class="btn" color="primary" @action="markRead"
                 >Відмітити як прочитане</AppButton
             >
+            <AppNewsList />
         </div>
     </div>
 </template>
 
 <script>
 import AppButton from '@/components/AppButton.vue';
+import AppNewsList from '@/components/AppNewsList.vue';
 
 export default {
     name: 'AppNews',
-    components: { AppButton },
+    components: { AppButton, AppNewsList },
     // props: ['title'],
     props: {
         title: { type: String, required: true },
@@ -65,3 +67,9 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+h3 {
+    color: darkcyan;
+}
+</style>

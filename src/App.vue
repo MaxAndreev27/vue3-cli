@@ -16,24 +16,56 @@
             @open-news-inner="openNews"
             @mark-read-inner="readRate++"
         />
+
+        <AppBlock>
+            <p>Дефолтний слот, задавати йому name не обов'язково</p>
+            <template v-slot:header>
+                <h3>Заголовок для слотів</h3>
+            </template>
+            <template #footer>
+                <hr />
+                <h3>Футер</h3>
+            </template>
+        </AppBlock>
+
+        <div class="card">
+            <h2>Динамические и асинхронные компоненты</h2>
+            <AppButton ref="myBtn" :color="oneColor" @action="active = 'One'">One</AppButton>
+            <AppButton :color="twoColor" @action="active = 'Two'">Two</AppButton>
+        </div>
+        <keep-alive>
+            <component :is="componentName"></component>
+        </keep-alive>
     </div>
+    <div class="card"><AppAsyncComponent /></div>
 </template>
 
 <script>
 import AppNews from '@/components/AppNews.vue';
+import AppBlock from '@/components/AppBlock.vue';
+import AppButton from '@/components/AppButton.vue';
+import AppTextOne from '@/components/AppTextOne.vue';
+import AppTextTwo from '@/components/AppTextTwo.vue';
+import AppAsyncComponent from '@/components/AppAsyncComponent.vue';
 
 export default {
     name: 'App',
-    components: { AppNews },
+    components: { AppAsyncComponent, AppButton, AppNews, AppBlock, AppTextOne, AppTextTwo },
     data() {
         return {
             now: new Date().toLocaleDateString(),
             openRate: 0,
             readRate: 0,
             news: [
-                { title: 'News1', id: 1, isOpen: false },
-                { title: 'News2', id: 2, isOpen: false },
+                {
+                    title: 'Джет Лоуренс переміг на 6 етапі AMA мотокросс Red Bud',
+                    id: 1,
+                    isOpen: false,
+                },
+                { title: 'У другому заїзді у Кайролі відмовила електрика', id: 2, isOpen: false },
+                { title: 'У першому заїзді у томака задимів двигун', id: 3, isOpen: false },
             ],
+            active: 'One', // Two
         };
     },
     methods: {
@@ -41,6 +73,31 @@ export default {
             this.openRate++;
             console.log(`Параметр returnParam1 з нижнього компонента вгору: ${returnParam1}`);
             console.log(`Параметр returnParam2 з нижнього компонента вгору: ${returnParam2}`);
+        },
+    },
+    provide() {
+        return {
+            title: 'Заголовок',
+            news: this.news,
+        };
+    },
+    computed: {
+        // componentName() {
+        //     return 'AppText' + this.active;
+        // },
+        componentName: {
+            get() {
+                return 'app-text-' + this.active;
+            },
+            set(value) {
+                console.log('componentName', value);
+            },
+        },
+        oneColor() {
+            return this.active === 'One' ? 'primary' : '';
+        },
+        twoColor() {
+            return this.active === 'Two' ? 'primary' : '';
         },
     },
 };
