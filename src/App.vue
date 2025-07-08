@@ -36,8 +36,10 @@
         <keep-alive>
             <component :is="componentName"></component>
         </keep-alive>
+        <div class="card"><AsyncComponent /></div>
     </div>
-    <div class="card"><AppAsyncComponent /></div>
+
+    <AppForm />
 </template>
 
 <script>
@@ -46,11 +48,11 @@ import AppBlock from '@/components/AppBlock.vue';
 import AppButton from '@/components/AppButton.vue';
 import AppTextOne from '@/components/AppTextOne.vue';
 import AppTextTwo from '@/components/AppTextTwo.vue';
-import AppAsyncComponent from '@/components/AppAsyncComponent.vue';
+import AppForm from '@/components/AppForm.vue';
 
 export default {
     name: 'App',
-    components: { AppAsyncComponent, AppButton, AppNews, AppBlock, AppTextOne, AppTextTwo },
+    components: { AppButton, AppNews, AppBlock, AppTextOne, AppTextTwo, AppForm },
     data() {
         return {
             now: new Date().toLocaleDateString(),
