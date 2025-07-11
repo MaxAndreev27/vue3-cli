@@ -2,7 +2,6 @@
     <div class="form-control" v-bind:class="{ invalid: error }">
         <label :for="id">{{ label }}</label>
         <input
-            v-focus
             type="text"
             :id="id"
             :placeholder="placeholder"
@@ -18,7 +17,7 @@ export default {
     directives: {
         focus: {
             mounted(el) {
-                console.log(el);
+                // console.log(el);
                 el.focus();
             },
         },

@@ -40,6 +40,12 @@
     </div>
 
     <AppForm />
+
+    <TheNavbar :visible="isAuth" />
+    <div class="container with-nav">
+        <!--Елемент для відображення компонентів у роутері-->
+        <router-view></router-view>
+    </div>
 </template>
 
 <script>
@@ -49,10 +55,21 @@ import AppButton from '@/components/AppButton.vue';
 import AppTextOne from '@/components/AppTextOne.vue';
 import AppTextTwo from '@/components/AppTextTwo.vue';
 import AppForm from '@/components/AppForm.vue';
+import TheNavbar from '@/components/TheNavbar.vue';
+import AppLogin from '@/views/AppLogin.vue';
 
 export default {
     name: 'App',
-    components: { AppButton, AppNews, AppBlock, AppTextOne, AppTextTwo, AppForm },
+    components: {
+        AppButton,
+        AppNews,
+        AppBlock,
+        AppTextOne,
+        AppTextTwo,
+        AppForm,
+        TheNavbar,
+        AppLogin,
+    },
     data() {
         return {
             now: new Date().toLocaleDateString(),
@@ -68,6 +85,7 @@ export default {
                 { title: 'У першому заїзді у томака задимів двигун', id: 3, isOpen: false },
             ],
             active: 'One', // Two
+            isAuth: true,
         };
     },
     methods: {
@@ -76,11 +94,37 @@ export default {
             console.log(`Параметр returnParam1 з нижнього компонента вгору: ${returnParam1}`);
             console.log(`Параметр returnParam2 з нижнього компонента вгору: ${returnParam2}`);
         },
+        login() {
+            this.isAuth = true;
+            if (this.$route.query.page) {
+                this.$router.push(this.$route.query.page);
+            } else {
+                this.$router.push('/dashboard');
+            }
+        },
+        logout() {
+            this.isAuth = false;
+            this.$router.push({
+                path: '/login',
+                query: {
+                    page: this.$route.path,
+                },
+            });
+        },
     },
     provide() {
         return {
             title: 'Заголовок',
             news: this.news,
+            emails: [
+                { id: '1', theme: 'Купил себе PlayStation 5' },
+                { id: '2', theme: 'Выучил Vue Router' },
+                { id: '3', theme: 'Хочу изучить весь Vue' },
+                { id: '4', theme: 'А следующий блок про Vuex!' },
+                { id: '5', theme: 'А что там на счет Vue Hooks?' },
+            ],
+            login: this.login,
+            logout: this.logout,
         };
     },
     computed: {
