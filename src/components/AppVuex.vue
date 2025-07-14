@@ -1,8 +1,8 @@
 <template>
     <div class="container with-nav">
         <div class="card">
-            <h1>Vuex example</h1>
-            <h2>Счетчик {{ $store.state.counter }}</h2>
+            <h1>{{ uppercaseTitle }}</h1>
+            <h2>Счетчик {{ $store.state.count.counter }}</h2>
             <h2>Счетчик Double {{ counterDouble }}</h2>
             <button class="btn" @click="increment">Додати</button>
             <button class="btn primary" @click="increment5">Додати 5</button>
@@ -19,7 +19,7 @@ import { mapGetters, mapActions, mapMutations } from 'vuex';
 export default {
     name: 'AppVuex',
     computed: {
-        ...mapGetters(['counterDouble']),
+        ...mapGetters(['counterDouble', 'uppercaseTitle']),
     },
     methods: {
         // increment() {

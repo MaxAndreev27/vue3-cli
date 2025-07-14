@@ -1,5 +1,5 @@
-import { createStore } from 'vuex';
-export default createStore({
+export default {
+    namespace: true,
     state() {
         return {
             counter: 1,
@@ -18,7 +18,7 @@ export default createStore({
     // Для асінхронного визову
     actions: {
         incrementAsync(context, payload) {
-            setTimeout(async () => await context.commit('increment', payload.value), payload.delay);
+            setTimeout(async () => await context.commit('increment', { value: 10 }), payload.delay);
         },
     },
     getters: {
@@ -26,4 +26,4 @@ export default createStore({
             return state.counter * 2;
         },
     },
-});
+};
