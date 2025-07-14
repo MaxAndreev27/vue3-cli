@@ -46,6 +46,8 @@
         <!--Елемент для відображення компонентів у роутері-->
         <router-view></router-view>
     </div>
+
+    <AppVuex />
 </template>
 
 <script>
@@ -57,6 +59,7 @@ import AppTextTwo from '@/components/AppTextTwo.vue';
 import AppForm from '@/components/AppForm.vue';
 import TheNavbar from '@/components/TheNavbar.vue';
 import AppLogin from '@/views/AppLogin.vue';
+import AppVuex from '@/components/AppVuex.vue';
 
 export default {
     name: 'App',
@@ -69,6 +72,7 @@ export default {
         AppForm,
         TheNavbar,
         AppLogin,
+        AppVuex,
     },
     data() {
         return {
