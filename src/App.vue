@@ -48,6 +48,8 @@
     </div>
 
     <AppVuex />
+
+    <AppComposition />
 </template>
 
 <script>
@@ -60,6 +62,7 @@ import AppForm from '@/components/AppForm.vue';
 import TheNavbar from '@/components/TheNavbar.vue';
 import AppLogin from '@/views/AppLogin.vue';
 import AppVuex from '@/components/AppVuex.vue';
+import AppComposition from '@/components/AppComposition.vue';
 
 export default {
     name: 'App',
@@ -73,6 +76,7 @@ export default {
         TheNavbar,
         AppLogin,
         AppVuex,
+        AppComposition,
     },
     data() {
         return {
