@@ -5,7 +5,12 @@ module.exports = {
         node: true,
     },
 
-    extends: ['plugin:vue/vue3-essential', 'eslint:recommended', 'plugin:prettier/recommended'],
+    extends: [
+        'plugin:vue/vue3-essential',
+        'eslint:recommended',
+        'plugin:prettier/recommended',
+        '@vue/typescript',
+    ],
 
     parserOptions: {
         parser: '@typescript-eslint/parser',
@@ -17,11 +22,4 @@ module.exports = {
         'no-unused-vars': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
         'vue/no-unused-components': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     },
-
-    extends: [
-        'plugin:vue/vue3-essential',
-        'eslint:recommended',
-        'plugin:prettier/recommended',
-        '@vue/typescript',
-    ],
 };
