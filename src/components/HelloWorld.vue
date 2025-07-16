@@ -11,47 +11,29 @@
         <ul>
             <li>
                 <a
-                    href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel"
+                    href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-typescript"
                     target="_blank"
                     rel="noopener"
-                    >babel</a
-                >
-            </li>
-            <li>
-                <a
-                    href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint"
-                    target="_blank"
-                    rel="noopener"
-                    >eslint</a
+                    >typescript</a
                 >
             </li>
         </ul>
         <h3>Essential Links</h3>
         <ul>
-            <li>
-                <a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a>
-            </li>
-            <li>
-                <a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a>
-            </li>
+            <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
+            <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
             <li>
                 <a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a>
             </li>
-            <li>
-                <a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a>
-            </li>
-            <li>
-                <a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a>
-            </li>
+            <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
+            <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
         </ul>
         <h3>Ecosystem</h3>
         <ul>
             <li>
                 <a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a>
             </li>
-            <li>
-                <a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a>
-            </li>
+            <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
             <li>
                 <a
                     href="https://github.com/vuejs/vue-devtools#vue-devtools"
@@ -72,13 +54,15 @@
     </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
     name: 'HelloWorld',
     props: {
         msg: String,
     },
-};
+});
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

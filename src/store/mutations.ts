@@ -1,5 +1,5 @@
 export default {
-    changeTitle(state, payload) {
+    changeTitle(state: any, payload: any) {
         state.appTitle = payload;
     },
 };

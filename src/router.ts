@@ -1,13 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Login from './views/AppLogin';
-import Forget from './views/AppForget';
-import Dashboard from './views/AppDashboard';
+import Login from './views/AppLogin.vue';
+import Forget from './views/AppForget.vue';
+import Dashboard from './views/AppDashboard.vue';
 // import Mail from './views/Mail'
-import NotFound from './views/NotFound';
-import AppEmailBody from './components/AppEmailBody';
+import NotFound from './views/NotFound.vue';
+import AppEmailBody from './components/AppEmailBody.vue';
 
 // Ліниве завантаження Mail сторінки
-const Mail = () => import('./views/AppMail');
+const Mail = () => import('./views/AppMail.vue');
 
 const router = createRouter({
     history: createWebHistory(),

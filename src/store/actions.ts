@@ -1,5 +1,5 @@
 export default {
-    changeTitle({ commit }, payload) {
+    changeTitle({ commit }: any, payload: any) {
         commit('changeTitle', payload);
     },
 };

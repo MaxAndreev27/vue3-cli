@@ -6,7 +6,7 @@ export default {
         };
     },
     mutations: {
-        increment(state, payload) {
+        increment(state: any, payload: any) {
             console.log(payload);
             if (typeof payload.value === 'number') {
                 state.counter += payload.value;
@@ -17,12 +17,12 @@ export default {
     },
     // Для асінхронного визову
     actions: {
-        incrementAsync(context, payload) {
+        incrementAsync(context: any, payload: any) {
             setTimeout(async () => await context.commit('increment', { value: 10 }), payload.delay);
         },
     },
     getters: {
-        counterDouble(state) {
+        counterDouble(state: any) {
             return state.counter * 2;
         },
     },
